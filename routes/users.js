@@ -14,10 +14,10 @@ router.post('/', (req, res) => {
   res.status(201).json(newUser);
 });
 
-router.get('/:id', (req, res) => {
-  const user = users.find(u => u.id === req.params.id);
-  if (user) {
-    res.json(user);
+router.get('/:id?', (req, res) => {
+  const id = parseInt(req.params.id);
+  if (typeof(id)=="number") {
+    res.json(users[id]);
   } else {
     res.status(404).json({ message: 'Usuario no encontrado' });
   }

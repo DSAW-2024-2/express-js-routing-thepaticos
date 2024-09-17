@@ -14,10 +14,10 @@ router.post('/', (req, res) => {
   res.status(201).json(newProduct);
 });
 
-router.get('/:id', (req, res) => {
-  const product = products.find(p => p.id === req.params.id);
-  if (product) {
-    res.json(product);
+router.get('/:id?', (req, res) => {
+  const id = parseInt(req.params.id);
+  if (typeof(id)=='number') {
+    res.json(products[id]);
   } else {
     res.status(404).json({ message: 'Producto no encontrado' });
   }
