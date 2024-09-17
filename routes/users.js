@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
+const data = require('../data/users.json');
 
-let users = ["Nicolas"];
+let users = data;
 
 router.get('/', (req, res) => {
   res.json(users);
