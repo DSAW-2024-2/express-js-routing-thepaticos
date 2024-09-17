@@ -4,9 +4,9 @@ const port = 3000;
 
 app.use(express.json());
 
-const userRoutes = require('./routes/users');
-const productRoutes = require('./routes/products');
-const orderRoutes = require('./routes/orders');
+const userRoutes = require('../routes/users');
+const productRoutes = require('../routes/products');
+const orderRoutes = require('../routes/orders');
 
 app.use('/users', userRoutes);
 app.use('/products', productRoutes);
