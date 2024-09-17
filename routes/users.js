@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-let users = [];
+let users = ["Nicolas"];
 
 router.get('/', (req, res) => {
   res.json(users);

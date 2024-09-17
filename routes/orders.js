@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-let orders = [];
+let orders = ["orden_1"];
 
 router.get('/', (req, res) => {
   res.json(orders);
