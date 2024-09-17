@@ -1,0 +1,16 @@
+{
+    "1":{
+        "id": "Identificador único",
+        "userId": "ID del usuario que hizo el pedido",
+        "productId": "ID del producto solicitado",
+        "quantity": "Cantidad solicitada",
+        "status": "Estado del pedido"
+      },
+    "2":{
+        "id": "Identificador único2",
+        "userId": "ID del usuario que hizo el pedido2",
+        "productId": "ID del producto solicitado2",
+        "quantity": "Cantidad solicitada2",
+        "status": "Estado del pedido2"
+      }
+}
