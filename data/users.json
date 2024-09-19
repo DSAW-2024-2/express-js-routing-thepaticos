@@ -1,14 +1,8 @@
-{
-    "1":{
-        "id": "Identificador único",
-        "name": "Nombre del usuario",
-        "email": "Correo electrónico",
-        "age": "Edad del usuario"
-    },
-    "2":{
-        "id": "Identificador único2",
-        "name": "Nombre del usuario2",
-        "email": "Correo electrónico2",
-        "age": "Edad del usuario2"
-    }
-}
+[
+  {
+    "id": 5,
+    "name": "User 5",
+    "email": "user5@gmail.com",
+    "age": 55
+  }
+]
