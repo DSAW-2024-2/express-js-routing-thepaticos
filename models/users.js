@@ -1,12 +1,12 @@
-const data = require("../data/users.json");
+const users = require("../data/users.json");
 const fs = require("fs");
 const path = require("path");
-let users = data;
 
 module.exports = class usersModel {
   static getAll() {
     return users;
   }
+
   static createUser(newUser) {
     const existUser = users.find((user) => {
       return user.id === newUser.id;
@@ -26,6 +26,7 @@ module.exports = class usersModel {
     );
     return newUser;
   }
+
   static getById(id) {
     const existUser = users.find((user) => {
       return user.id === id;
@@ -35,6 +36,7 @@ module.exports = class usersModel {
     }
     return existUser;
   }
+
   static modifyUser(id, updateData) {
     const userIndex = users.findIndex((user) => user.id === id);
     if (userIndex !== -1) {
@@ -53,9 +55,9 @@ module.exports = class usersModel {
       throw new Error("User doesn't exist");
     }
   }
+
   static deleteUser(id) {
     const userIndex = users.findIndex((user) => user.id === id);
-
     if (userIndex !== -1) {
       users.splice(userIndex, 1);
       fs.writeFile(

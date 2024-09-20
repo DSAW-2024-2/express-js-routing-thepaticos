@@ -1,16 +1,16 @@
-{
-    "1":{
-        "id": "Identificador único",
-        "userId": "ID del usuario que hizo el pedido",
-        "productId": "ID del producto solicitado",
-        "quantity": "Cantidad solicitada",
-        "status": "Estado del pedido"
-      },
-    "2":{
-        "id": "Identificador único2",
-        "userId": "ID del usuario que hizo el pedido2",
-        "productId": "ID del producto solicitado2",
-        "quantity": "Cantidad solicitada2",
-        "status": "Estado del pedido2"
-      }
-}
+[
+    {
+      "id": 2,
+      "userId": 5,
+      "productId": 5,
+      "quantity": 10,
+      "status": "En espera"
+    },
+    {
+      "id": 3,
+      "userId": 6,
+      "productId": 6,
+      "quantity": 20,
+      "status": "Entregado"
+    }
+]

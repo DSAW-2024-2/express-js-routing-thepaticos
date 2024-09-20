@@ -1,14 +1,14 @@
-{
-    "1":{
-        "id": "Identificador único",
-        "name": "Nombre del producto",
-        "price": "Precio del producto",
-        "category": "Categoría del producto"
-      },
-    "2":{
-        "id": "Identificador único2",
-        "name": "Nombre del producto2",
-        "price": "Precio del producto2",
-        "category": "Categoría del producto2"
-      }
-}
+[
+  {
+    "id": 5,
+    "name": "prod_one",
+    "price": "100",
+    "category": "Category 1"
+  },
+  {
+    "id": 6,
+    "name": "prod_otwo",
+    "price": "200",
+    "category": "Category 2"
+  }
+]

@@ -4,5 +4,11 @@
     "name": "User 5",
     "email": "user5@gmail.com",
     "age": 55
+  },
+  {
+    "id": 6,
+    "name": "User 6",
+    "email": "user6@gmail.com",
+    "age": 66
   }
 ]

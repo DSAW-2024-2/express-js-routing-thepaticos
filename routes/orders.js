@@ -1,26 +1,15 @@
-const express = require('express');
+const express = require("express");
+const ordersControllers  = require("../controllers/orders");
 const router = express.Router();
-const data = require('../data/orders.json');
 
-let orders = data;
+router.get("/", ordersControllers.getAll);
 
-router.get('/', (req, res) => {
-  res.json(orders);
-});
+router.post("/", ordersControllers.createOrder);
 
-router.get('/:id?', (req, res) => {
-  const id = parseInt(req.params.id);
-  if (typeof(id)=="number") {
-    res.json(orders[id]);
-  } else {
-    res.status(404).json({ message: 'Pedido no encontrado' });
-  }
-});
+router.get("/:id?", ordersControllers.getById);
 
-router.post('/', (req, res) => {
-  const newOrder = req.body;
-  orders.push(newOrder);
-  res.status(201).json(newOrder);
-});
+router.put("/:id", ordersControllers.modifyOrder);
+
+router.delete("/:id", ordersControllers.deleteOrder);
 
 module.exports = router;
