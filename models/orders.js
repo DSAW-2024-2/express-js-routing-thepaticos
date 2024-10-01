@@ -1,7 +1,7 @@
-const orders = require("../data/orders.json");
+const initialOrders = require("../data/orders.json");
 const fs = require("fs");
 const path = require("path");
-
+const orders = initialOrders;
 module.exports = class ordersModel {
   static getAll() {
     return orders;
@@ -15,15 +15,6 @@ module.exports = class ordersModel {
       throw new Error("existOrder");
     }
     orders.push(newOrder);
-    fs.writeFile(
-      path.join(__dirname, "../data/orders.json"),
-      JSON.stringify(orders, null, 2),
-      (err) => {
-        if (err) {
-          throw new Error("Server Error");
-        }
-      }
-    );
     return newOrder;
   }
 
@@ -41,15 +32,6 @@ module.exports = class ordersModel {
     const orderIndex = orders.findIndex((order) => order.id === id);
     if (orderIndex !== -1) {
       orders[orderIndex] = { ...orders[orderIndex], ...updateData };
-      fs.writeFile(
-        path.join(__dirname, "../data/orders.json"),
-        JSON.stringify(orders, null, 2),
-        (err) => {
-          if (err) {
-            throw new Error(err);
-          }
-        }
-      );
       return orders[orderIndex];
     } else {
       throw new Error("Order doesn't exist");
@@ -60,15 +42,6 @@ module.exports = class ordersModel {
     const orderIndex = orders.findIndex((order) => order.id === id);
     if (orderIndex !== -1) {
       orders.splice(orderIndex, 1);
-      fs.writeFile(
-        path.join(__dirname, "../data/orders.json"),
-        JSON.stringify(orders, null, 2),
-        (err) => {
-          if (err) {
-            throw new Error(err);
-          }
-        }
-      );
       return;
     } else {
       throw new Error("Order doesn't exist");

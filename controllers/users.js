@@ -12,6 +12,10 @@ class usersControllers {
   static createUser(req, res) {
     try {
       const newUserData = req.body;
+      if (!correctStructure(newUserData)) {
+        res.status(409).json({ message: "Incorrect Credentials" });
+        return;
+      }
       const newUser = usersModel.createUser(newUserData);
       res.status(201).json(newUser);
       return;
@@ -59,6 +63,22 @@ class usersControllers {
       }
       return res.status(500).json({ message: error.message });
     }
+  }
+}
+function correctStructure(objeto) {
+  if (
+    objeto.hasOwnProperty("id") &&
+    typeof objeto.id === "number" &&
+    objeto.hasOwnProperty("name") &&
+    typeof objeto.name === "string" &&
+    objeto.hasOwnProperty("email") &&
+    typeof objeto.email === "string" &&
+    objeto.hasOwnProperty("age") &&
+    typeof objeto.age === "number"
+  ) {
+    return true;
+  } else {
+    return false;
   }
 }
 function isNumber(param) {

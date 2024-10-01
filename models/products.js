@@ -1,7 +1,7 @@
-const products = require("../data/products.json");
+const initialProducts = require("../data/products.json");
 const fs = require("fs");
 const path = require("path");
-
+const products = initialProducts;
 module.exports = class productsModel {
   static getAll() {
     return products;
@@ -15,15 +15,7 @@ module.exports = class productsModel {
       throw new Error("existProduct");
     }
     products.push(newProduct);
-    fs.writeFile(
-      path.join(__dirname, "../data/products.json"),
-      JSON.stringify(products, null, 2),
-      (err) => {
-        if (err) {
-          throw new Error("Server Error");
-        }
-      }
-    );
+
     return newProduct;
   }
 
@@ -41,15 +33,7 @@ module.exports = class productsModel {
     const productIndex = products.findIndex((product) => product.id === id);
     if (productIndex !== -1) {
       products[productIndex] = { ...products[productIndex], ...updateData };
-      fs.writeFile(
-        path.join(__dirname, "../data/products.json"),
-        JSON.stringify(products, null, 2),
-        (err) => {
-          if (err) {
-            throw new Error(err);
-          }
-        }
-      );
+
       return products[productIndex];
     } else {
       throw new Error("Product doesn't exist");
@@ -60,15 +44,6 @@ module.exports = class productsModel {
     const productIndex = products.findIndex((product) => product.id === id);
     if (productIndex !== -1) {
       products.splice(productIndex, 1);
-      fs.writeFile(
-        path.join(__dirname, "../data/products.json"),
-        JSON.stringify(products, null, 2),
-        (err) => {
-          if (err) {
-            throw new Error(err);
-          }
-        }
-      );
       return;
     } else {
       throw new Error("Product doesn't exist");

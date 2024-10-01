@@ -12,6 +12,10 @@ class ordersControllers {
   static createOrder(req, res) {
     try {
       const newOrderData = req.body;
+      if (!correctStructure(newOrderData)) {
+        res.status(409).json({ message: "Incorrect Credentials" });
+        return;
+      }
       const newOrder = ordersModel.createOrder(newOrderData);
       res.status(201).json(newOrder);
       return;
@@ -59,6 +63,24 @@ class ordersControllers {
       }
       return res.status(500).json({ message: error.message });
     }
+  }
+}
+function correctStructure(objeto) {
+  if (
+    objeto.hasOwnProperty("id") &&
+    typeof objeto.id === "number" &&
+    objeto.hasOwnProperty("userId") &&
+    typeof objeto.userId === "number" &&
+    objeto.hasOwnProperty("productId") &&
+    typeof objeto.productId === "number" &&
+    objeto.hasOwnProperty("quantity") &&
+    typeof objeto.quantity === "number" &&
+    objeto.hasOwnProperty("status") &&
+    typeof objeto.status === "string"
+  ) {
+    return true;
+  } else {
+    return false;
   }
 }
 function isNumber(param) {

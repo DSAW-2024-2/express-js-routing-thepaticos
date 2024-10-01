@@ -1,6 +1,7 @@
-const users = require("../data/users.json");
+const initialUsers = require("../data/users.json");
 const fs = require("fs");
 const path = require("path");
+const users = initialUsers;
 
 module.exports = class usersModel {
   static getAll() {
@@ -15,15 +16,6 @@ module.exports = class usersModel {
       throw new Error("existUser");
     }
     users.push(newUser);
-    fs.writeFile(
-      path.join(__dirname, "../data/users.json"),
-      JSON.stringify(users, null, 2),
-      (err) => {
-        if (err) {
-          throw new Error("Server Error");
-        }
-      }
-    );
     return newUser;
   }
 
@@ -41,15 +33,7 @@ module.exports = class usersModel {
     const userIndex = users.findIndex((user) => user.id === id);
     if (userIndex !== -1) {
       users[userIndex] = { ...users[userIndex], ...updateData };
-      fs.writeFile(
-        path.join(__dirname, "../data/users.json"),
-        JSON.stringify(users, null, 2),
-        (err) => {
-          if (err) {
-            throw new Error(err);
-          }
-        }
-      );
+
       return users[userIndex];
     } else {
       throw new Error("User doesn't exist");
@@ -60,15 +44,6 @@ module.exports = class usersModel {
     const userIndex = users.findIndex((user) => user.id === id);
     if (userIndex !== -1) {
       users.splice(userIndex, 1);
-      fs.writeFile(
-        path.join(__dirname, "../data/users.json"),
-        JSON.stringify(users, null, 2),
-        (err) => {
-          if (err) {
-            throw new Error(err);
-          }
-        }
-      );
       return;
     } else {
       throw new Error("User doesn't exist");

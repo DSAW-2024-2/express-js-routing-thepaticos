@@ -10,8 +10,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node functions/index.js",
-    "start:dev": "nodemon functions/index.js",
-    "build": "netlify deploy --prod"
+    "start:dev": "nodemon index.js",
+    "build": "netlify deploy --prod",
+    "vercel-build":"echo hello"
   },
   "keywords": [],
   "author": "",
