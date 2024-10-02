@@ -2,9 +2,7 @@
 
 # Links Desplegados
 
-* [https://routing-the-paticos.netlify.app/users](https://routing-the-paticos.netlify.app/users)
-* [https://routing-the-paticos.netlify.app/orders](https://routing-the-paticos.netlify.app/orders)
-* [https://routing-the-paticos.netlify.app/products](https://routing-the-paticos.netlify.app/products)
+* [https://express-js-routing-thepaticos.vercel.app](https://express-js-routing-thepaticos.vercel.app)
 
 # Taller en Parejas: Creación de una API REST con Express.js
 
