@@ -2,7 +2,7 @@
 
 # Links Desplegados
 
-* [https://express-js-routing-thepaticos.vercel.app](https://express-js-routing-thepaticos.vercel.app)
+> [https://endpoints-routing-thepaticos-v2.vercel.app](https://endpoints-routing-thepaticos-v2.vercel.app)
 
 # Taller en Parejas: Creación de una API REST con Express.js
 
