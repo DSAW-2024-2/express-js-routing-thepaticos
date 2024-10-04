@@ -2,7 +2,7 @@
 
 # Links Desplegados
 
-* [https://routing-the-paticos.netlify.app](https://endpoints-routing-thepaticos-v2.vercel.app)
+* [https://endpoints-routing-thepaticos-v2.vercel.app/](https://endpoints-routing-thepaticos-v2.vercel.app/)
 
 # Taller en Parejas: Creación de una API REST con Express.js
 
